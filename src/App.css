@@ -1,38 +1,454 @@
-.App {
-  text-align: center;
+:root {
+  /*-- znamena,ze zadavas farbu ako variable, root: (reprezentuje index.html) ze vies pouzit tieto farby napriec celej app, cize globalne*/
+  --mainBlue: #2a2a72;
+  --lightBlue: #009ffd;
+  --mainWhite: #f3f3f3;
+  --mainDark: #232528;
+  --mainYellow: #ffa400;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body {
+  /*important preto, lebo bootstrap to ignoruje*/
+ font-family: 'Oswald', sans-serif !important; 
+ background: #E5E5E5 !important;
+ color: var(--mainDark) !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*page scroll*/
+::-webkit-scrollbar{
+width: 12px;
+}
+
+::-webkit-scrollbar-track{
+background: black;
+}
+
+::-webkit-scrollbar-thumb{
+background: var(--lightBlue);
+border-radius: 6px;
+}
+/**/
+
+.text-title {
+  /*tu netreba important, lebo to je moje, nie ako sucast stavby app ako bolo body*/
+  font-family: 'Permanent Marker',cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+.text-title:hover {
+  color: var(--lightBlue);
+}
+    
+.text-bright {
+  color: var(--lightBlue);
+}
+
+.text-hover:hover {
+  color: var(--lightBlue);
+}
+
+.btn-black {
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem !important;
+  color: var(--mainDark);
+  border-radius: 0 !important;
+  border: 0.1rem solid var(--mainDark) !important;
+}
+
+.btn-black:hover {
+  background: var(--mainDark) !important;
+  color: var(--mainWhite) !important;
+}
+
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--mainYellow);
+}
+
+.banner-wawe{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (max-width: 1500px){
+  .banner-wawe{
+    padding-top: 3rem;
+    padding-bottom: 0rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/*Footer*/
+.footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background: var(--mainDark);
+  color: var(--mainWhite); 
+}
+/*Login*/
+.form{
+  width: 30%;
+}
+/*End of Login*/
+.products{
+  margin-left: 5rem;
+}
+/*Thumb Pics*/
+.main {
+  border: 1px solid var(--mainDark);
+  max-height: 30rem;
+  width: 100%;
+  object-fit: contain;
+  background: white;
+}
+.main:hover {
+  border: 1px solid var(--lightBlue);
+}
+.images {
+  padding-top: 3rem;
+  display: flex; 
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.thumb{
+  width: 25%;
+  height: 100px;
+  cursor: pointer;
+  margin-top: 7px;
+  margin-left: 2px;
+  object-fit: contain;
+  background: white; 
+}
+.thumb:hover {
+  border: 1px solid var(--lightBlue);
+}
+@media (max-width: 500px){
+  .thumb{
+    height: 50px;
+  }
+  .thumb img{
+    width: 70px;
+  }
+}
+/*Accordeon*/
+.accordeon {
+  background: var(--mainDark);
+}
+.accordeon-text {
+  color: var(--mainWhite);
+}
+.text-acc{
+  color: var(--lightBlue);
+  font-family: 'Permanent Marker',cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+/*Accordeon + text a Admin User sekcia*/
+@media (max-width: 550px){
+  .acc h5, .acc p, .acc h3, .acc h4, .acc button{
+    font-size: 0.6rem;
+  }
+  .acc h3, .acc input{
+    font-size: 98%;
+  }
+  .edit input{
+    width: 90%;
+    height: 1rem;
+  }
+  .edit button{
+    font-size: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .edit-btn button{
+    font-size: 0.6rem;
+    padding: 0.3rem;
+    margin: 1rem;
+    text-transform: capitalize;
+  }
+  .edit-btn{
+    display: flex;
+    align-items: left;
+    justify-content: center;
+  }
+  .check{
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+  .edit2 input{
+    width: 50%;
+    height: 1.5rem;
+  }
+  .edit2 button{
+    font-size: 0.6rem;
+    padding-left: 0.5rem;
+  }
+  .check2 input{
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  .new h4, .new button{
+    font-size: 0.6rem;
+  }
+  .new h2{
+    font-size: 98%;
+  }
+  .acc div, .new-div, .check2 label{
+    margin: 0;
+    padding: 0;
+  }
+  .new-div button{
+    font-size: 0.9rem;
+  }
+  .acc2 button, .acc2 p, .acc2 h5, .acc2 select{
+    font-size: 0.6rem;
+  }
+  .acc3 button{
+    margin-bottom: 0.7rem;
+  }
+
+  .account h5, .account h3, .account button{
+    font-size: 98%;
+  }
+  .account button{
+    font-size: 0.7rem;
+  }
+  .user p{
+    font-size: 0.5rem;
+  }
+  .text-title{
+    font-size: 98%;
+  }
+  .login button, .login h4, .login input, .login label{
+    font-size: 95%;
+  }
+  .signup button, .signup input, .signup label{
+    font-size: 60%;
+  }
+
+  .totals button, .totals h5, .totals h2{
+    font-size: 0.7rem;
+  }
+  .cart{
+    padding-top: 1rem;
+  }
+  .adress h2, .adress h5, .adress button, .adress label, .adress input{
+    font-size: 0.7rem;
+  }
+  .adress h2{
+    font-size: 98%;
+    padding: 2rem !important;
+  }
+  .details h2, .details h4, .details button, .details p{
+    font-size: 1.2rem;
+  }
+
+  .carousel-caption p{
+    font-size: 0.4rem;
+  }
+  .carousel-caption h3{
+    font-size: 0.6rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Navbar */
+.navbar {
+  width: auto;
+  background: var(--mainDark);
+}
+.nav-min {
+  width: auto;
+  background: var(--mainDark);
+}
+ul{
+  position: relative;
+  top: 0;
+  right: 1rem;
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 1rem;
+  color: var(--mainWhite);
+}
+.nav-btn:focus {
+  outline: none;
+  color: #495464;
+}
+.nav-btn:hover {
+  color: var(--lightBlue);
+}
+.nav-links1 {
+  height: 0;
+  display: none;
+}
+.nav-links {
+  overflow: hidden;
+  list-style-type: none;
+  text-align: center;
+}
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  color: var(--mainWhite);
+  font-size:1.3rem;
+  padding: 0.3rem;
+}
+.nav-links a:hover {
+  color: var(--lightBlue);
+  text-decoration: none;
+}
+.show-nav {
+  height: auto;
+}
+.nav-item a {
+  display: block;
+  text-decoration: none;
+  color: var(--mainWhite);
+  font-size:1.3rem;
+  text-transform: capitalize;
+  padding: 0.3rem;
+  margin-right: 1rem;
+}
+.logo {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+.logo a{
+  text-decoration: none;
+  color: var(--mainWhite);
+}
+.logo a:hover {
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+.nav-item a:hover {
+  color: var(--lightBlue);
+  text-decoration: none;
+}
+/* end of navbar */
+/*err*/
+.err{
+  position:relative;
+  display: grid;
+  width:100%;
+  height: 100%;
+  top:0;
+  left:0;
+  transform: translateY(75%);
+  cursor: pointer;
+}
+@media (max-width: 768px){
+  .err h3{
+    font-size: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .err h2{
+    font-size: 1.5rem;
   }
+  .err h1{
+    font-size: 2rem;
+  }
+}
+/*images cart*/
+.img-cart{
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  object-fit: contain;
+  background: white; 
+}
+/*images main*/
+.img-fit{
+  width:100%;
+  height:14rem;
+  padding-bottom: 1rem;
+  object-fit: cover;
+  cursor: pointer;
+}
+/*Loader*/
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  padding: 2rem;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--mainWhite);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+.loader-fit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+.loader-fit2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  margin: 2rem;
+}
+.loader-suspense{
+  position: absolute;
+  top: 90%;
+  left: 45%;
+  display: flex;
+  padding: 3rem;
+  margin: 2rem;
+  background: transparent;
+  transform:translate(-50%,-50%);
+  z-index: 10000;
 }
